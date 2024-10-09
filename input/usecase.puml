@@ -1,0 +1,39 @@
+@startuml Usecase_Diagram
+
+/' INCLUDE '/
+
+    !include include/references.txt
+    !include include/theme.txt
+    !include include/styles.txt
+
+/' STYLE '/
+
+    left to right direction
+
+/' TITLE '/
+
+    title Usecase Diagram
+
+/' ACTORS '/
+
+    actor "Guest" as g
+
+    package Professional {
+        actor "Food Critic" as fc
+    }
+
+    package Restaurant {
+        usecase "Eat Food" as UC1
+        usecase "Pay for Food" as UC2
+        usecase "Drink" as UC3
+        usecase "Review" as UC4
+    }
+
+/' ARROWS '/
+
+    fc -up-> UC4
+    g -down-> UC1
+    g -down-> UC2
+    g -down-> UC3
+
+@enduml

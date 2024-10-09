@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <title>The Catcher in the Rye</title>
+        <author>J.D. Salinger</author>
+        <year>1951</year>
+        <genre>Fiction</genre>
+    </book>
+    <book>
+        <title>1984</title>
+        <author>George Orwell</author>
+        <year>1949</year>
+        <genre>Dystopian</genre>
+    </book>
+</library>

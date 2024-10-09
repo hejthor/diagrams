@@ -1,0 +1,24 @@
+@startuml Class_Diagram_from_XML
+
+/' INCLUDE '/
+
+    !include include/references.txt
+    !include include/theme.txt
+    !include include/styles.txt
+
+/' STYLES '/
+
+    skinparam defaultTextAlignment left
+    hide empty methods
+    hide circle
+    left to right direction
+
+/' TITLE '/
+
+    title Class Diagram from JSON
+
+/' CLASSES '/
+
+    !include ../temp/data.txt
+
+@enduml

@@ -1,0 +1,53 @@
+@startuml Sequence_Diagram
+
+/' INCLUDE '/
+
+    !include include/references.txt
+    !include include/theme.txt
+    !include include/styles.txt
+
+/' STYLE '/
+
+    hide unlinked
+
+/' TITLE '/
+
+    title Sequence Diagram
+
+/' PARTICIPANTS '/
+
+    actor       "Actor"         as ACTOR        <<Stereotype>>
+    entity      "Entity A"      as ENTITY_A     <<Stereotype>>
+    entity      "Entity B"      as ENTITY_B     <<Stereotype>>
+    database    "Database"      as DATABASE     <<Stereotype>>
+    participant "Participant"   as PARTICIPANT  <<Stereotype>>
+    boundary    "Boundary"      as BOUNDARY     <<Stereotype>>
+    control     "Control"       as CONTROL      <<Stereotype>>
+    collections "Collections"   as COLLECTIONS  <<Stereotype>>
+    queue       "Queue"         as QUEUE        <<Stereotype>>
+
+/' STEPS '/
+
+    group User data retrieval
+        ACTOR -> ENTITY_A : Request $Reference1
+        ENTITY_A -> ENTITY_B : Token
+        ENTITY_B -> ENTITY_B : Validation
+        group Invalid
+            ENTITY_B --> ENTITY_A : Response (failure) $Reference2
+        end
+        group Valid
+            ENTITY_B -> DATABASE : Request
+            DATABASE -> DATABASE : Fetch
+            DATABASE --> ENTITY_B : Data
+            ENTITY_B --> ENTITY_A : Response (success)
+        end
+        ENTITY_A --> ACTOR : Response $Reference3
+    end
+    
+    ACTOR -> PARTICIPANT
+    ACTOR -> BOUNDARY
+    ACTOR -> CONTROL
+    ACTOR -> COLLECTIONS
+    ACTOR -> QUEUE
+
+@enduml

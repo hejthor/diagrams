@@ -1,0 +1,42 @@
+@startuml Class_Diagram_from_JSON
+
+/' INCLUDE '/
+
+    !include include/references.txt
+    !include include/theme.txt
+    !include include/styles.txt
+
+/' STYLES '/
+
+    skinparam defaultTextAlignment left
+    hide empty methods
+    hide circle
+    left to right direction
+
+/' TITLE '/
+
+    title Class Diagram from JSON
+
+/' CLASSES '/
+
+    !include ../temp/source.txt
+    !include ../temp/middle.txt
+    !include ../temp/target.txt
+
+/' INTO MIDDLE '/
+
+    SourceRoot::userName --> MirrorMiddleRootUser::user_name
+    SourceRoot::isActive --> MirrorMiddleRootUser::active
+    SourceRoot::userId --> MirrorMiddleRootUser::user_id
+    SourceRoot::email --> MirrorMiddleRootUser::email_address
+    SourceRoot::age --> MirrorMiddleRootUser::user_age
+
+/' FROM MIDDLE '/
+
+    MiddleRootUser::email_address --> TargetRoot::email
+    MiddleRootUser::user_id --> TargetRoot::userId
+    MiddleRootUser::user_name --> TargetRoot::userName
+    MiddleRootUser::user_age --> TargetRoot::age
+    MiddleRootUser::active --> TargetRoot::isActive
+
+@enduml

@@ -1,0 +1,16 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "input/.*",
+                "cmd": "./compile.sh"
+            }
+        ]
+    },
+    "editor.minimap.enabled": false,
+    "files.autoSave": "off",
+    "terminal.integrated.hideOnStartup": "always",
+    "terminal.integrated.enableVisualBell": false,
+    "terminal.integrated.defaultLocation": "view",
+    "terminal.integrated.tabs.hideCondition": "singleTerminal"
+}

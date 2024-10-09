@@ -1,0 +1,13 @@
+{
+    "userId": 12345,
+    "userName": "john_doe",
+    "email": "john.doe@example.com",
+    "age": 30,
+    "isActive": true,
+    "registrationDate": "2021-05-15",
+    "lastLogin": "2024-10-08T12:34:56Z",
+    "roles": [
+        "user",
+        "admin"
+    ]
+}

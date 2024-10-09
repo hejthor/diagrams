@@ -1,0 +1,48 @@
+@startuml Class_Diagram
+
+/' INCLUDE '/
+
+    !include include/references.txt
+    !include include/theme.txt
+    !include include/styles.txt
+
+/' STYLES '/
+
+    skinparam defaultTextAlignment left
+    hide empty methods
+    hide circle
+    left to right direction
+
+/' TITLE '/
+
+    title Class Diagram
+
+/' CLASSES '/
+
+    class Root as "	" {
+        <color:purple>String</color> question
+        ---
+        <color:purple>String</color> answer
+        ---
+        <color:purple>Object</color> options
+    }
+
+    class RootOptions as "options" {
+        <color:purple>String</color> question
+        ---
+        <color:purple>String</color> answer
+    }
+
+    class MirrorRootOptions as "options" {
+        <color:purple>String</color> question
+        ---
+        <color:purple>String</color> answer
+    }
+
+
+/' CONNECTIONS '/
+
+    Root::options --> RootOptions
+    Root::options -up-> MirrorRootOptions
+
+@enduml

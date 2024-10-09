@@ -1,0 +1,27 @@
+@startuml Activity_Diagram
+
+/' INCLUDE '/
+
+    !include include/references.txt
+    !include include/theme.txt
+    !include include/styles.txt
+
+/' TITLE '/
+
+    title Activity Diagram
+
+/' STYLE '/
+
+    left to right direction
+    skinparam linetype ortho
+
+/' ACTIVITIES '/
+
+    partition Text {
+        "Activity A" -left-> "Activity B"
+    }
+
+    (*) -down-> "Activity A"
+    "Activity B" -down-> (*)
+
+@enduml

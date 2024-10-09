@@ -1,0 +1,51 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker
+      run: docker build -t diagram-builder -f .devcontainer/Dockerfile .
+
+    - name: Run compile.sh
+      run: |
+        docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace diagram-builder /bin/bash ./compile.sh
+
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ github.run_number }}
+        release_name: Published diagrams
+        draft: false
+        prerelease: false
+
+    - name: Upload Files to Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        UPLOAD_URL: ${{ steps.create_release.outputs.upload_url }}
+      run: |
+        CLEAN_URL=$(echo "$UPLOAD_URL" | sed 's/{.*}//')
+        for file in output/*; do
+          if [ -f "$file" ]; then
+            curl -X POST \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Content-Type: $(file --mime-type -b "$file")" \
+              --data-binary @"$file" \
+              "${CLEAN_URL}?name=$(basename "$file")&label=$(basename "$file")"
+          fi
+        done
