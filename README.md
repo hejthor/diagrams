@@ -1,13 +1,13 @@
-![Class Diagram](https://github.com/thor-com-se/diagrams/releases/latest/download/Class_Diagram_from_JSON.png)
-
-_Example: Class Diagram generated from JSON_
-
 # Diagrams
 
 Repository for generating diagrams using PlantUML
 
 - Devcontainer for compiling diagrams in codespace
 - Automatically publishes diagrams as release on commit
+
+## Example: Class Diagram generated from JSON files
+
+![Class Diagram](https://github.com/thor-com-se/diagrams/releases/latest/download/Class_Diagram_from_JSON.png)
 
 ## Preprocessors (optional)
 
