@@ -7,7 +7,7 @@ Repository for generating diagrams using PlantUML
 
 ## Example: Class Diagram generated from JSON files
 
-![Class Diagram](https://github.com/thorlindberg/diagrams/releases/latest/download/Class_Diagram_from_JSON.png)
+![Class Diagram](https://github.com/thor-se/diagrams/releases/latest/download/Class_Diagram_from_JSON.png)
 
 ## Preprocessors (optional)
 
