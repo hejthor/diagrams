@@ -2,7 +2,7 @@
     "emeraldwalk.runonsave": {
         "commands": [
             {
-                "match": "input/.*",
+                "match": "resources/.*|input/.*|compile.sh",
                 "cmd": "./compile.sh"
             }
         ]
